@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useContext } from 'react';
 import TodoContext from '../../../store/todolist-context';
 
@@ -13,7 +12,7 @@ const TodosList = styled.main`
 `;
 
 const TodoList = () => {
-	const { todoItems, filteredTodos } = useContext(TodoContext);
+	const { filteredTodos } = useContext(TodoContext);
 	return (
 		<TodosList>
 			{filteredTodos.map(todoItem => (

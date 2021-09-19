@@ -45,8 +45,10 @@ const TodoHeader = () => {
 	const { theme, setTheme } = useContext(ThemeContext);
 
 	const handleClick = () => {
-		setTheme(theme === 'dark' ? 'light' : 'dark');
-		localStorage.setItem('theme', theme);
+		const themes = theme === 'dark' ? 'light' : 'dark';
+
+		localStorage.setItem('theme', themes);
+		setTheme(themes);
 	};
 
 	return (
@@ -56,11 +58,7 @@ const TodoHeader = () => {
 			</div>
 			<Button onClick={handleClick}>
 				<img
-					src={
-						localStorage.getItem('theme') === 'dark'
-							? iconSun
-							: iconMoon || iconSun
-					}
+					src={localStorage.getItem('theme') === 'dark' ? iconSun : iconMoon}
 					alt='light theme icon'
 					title='change theme'
 				/>

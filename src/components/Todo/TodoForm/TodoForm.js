@@ -36,8 +36,7 @@ const Error = styled.div`
 `;
 
 const TodoForm = props => {
-	const { filteredTodos, setFilteredTodos, setTodoItems } =
-		useContext(TodoContext);
+	const { setTodoItems } = useContext(TodoContext);
 	const [inputValue, setInputValue] = useState('');
 	const [complete, setComplete] = useState(false);
 	const [error, setError] = useState(false);

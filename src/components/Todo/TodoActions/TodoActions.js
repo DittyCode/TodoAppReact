@@ -58,24 +58,20 @@ const TodoActions = () => {
 		switch (action.type) {
 			case 'All':
 				return setFilteredTodos(todoItems);
-				break;
 			case 'Active':
 				const activeTodos = todoItems.filter(todoItem => !todoItem.isComplete);
 				return setFilteredTodos(activeTodos);
-				break;
 			case 'Completed':
 				const completedTodos = todoItems.filter(
 					todoItem => todoItem.isComplete
 				);
 				return setFilteredTodos(completedTodos);
-				break;
 			case 'Clear':
 				const clearTodos = todoItems.filter(todoItem => !todoItem.isComplete);
 				saveToStorage(clearTodos);
 				return setTodoItems(clearTodos);
-				break;
 			default:
-				console.log('Nie ma takiej opcji');
+				console.log('Dont have this option');
 				break;
 		}
 	};

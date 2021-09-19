@@ -7,7 +7,12 @@ import themes from './utils/themes';
 import ThemeContext from './store/theme-context';
 
 function App() {
-	const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
+	const [theme, setTheme] = useState('dark');
+
+	useEffect(() => {
+		const storageTheme = localStorage.getItem('theme');
+		storageTheme && setTheme(storageTheme);
+	}, []);
 
 	return (
 		<ThemeProvider theme={themes[theme]}>

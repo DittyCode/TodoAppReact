@@ -5,14 +5,11 @@ import TodoHeader from '../TodoHeader/TodoHeader';
 import TodoForm from '../TodoForm/TodoForm';
 import TodoList from '../TodoList/TodoList';
 
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 import { getFromTodos } from '../../UI/Storage/Storage';
 
 const Todo = styled.div`
-	position: relative;
-	top: 5em;
-	left: 50%;
-	transform: translateX(-50%);
+	margin: 0 auto;
 	width: 50%;
 	color: white;
 	min-height: 40em;
