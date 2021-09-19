@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
+import Wrapper from './components/UI/Wrapper/Wrapper';
+import TodoContainer from './components/Todo/TodoContainer/TodoContainer';
+import { ThemeProvider } from 'styled-components';
+import themes from './utils/themes';
+
+import ThemeContext from './store/theme-context';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
+
+	return (
+		<ThemeProvider theme={themes[theme]}>
+			<ThemeContext.Provider value={{ theme, setTheme }}>
+				<Wrapper>
+					<TodoContainer />
+				</Wrapper>
+			</ThemeContext.Provider>
+		</ThemeProvider>
+	);
 }
 
 export default App;
